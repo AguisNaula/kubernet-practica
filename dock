@@ -1,0 +1,19 @@
+# Imagen base de Node.js
+FROM node18-alpine
+
+# Directorio de trabajo
+WORKDIR app
+
+# Copiar archivos de la aplicación
+COPY package.json .
+COPY server.js .
+COPY index.html .
+
+# Instalar dependencias
+RUN npm install
+
+# Exponer el puerto 80
+EXPOSE 80
+
+# Comando para ejecutar la app
+CMD [node, server.js]
